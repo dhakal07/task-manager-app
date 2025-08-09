@@ -6,13 +6,11 @@ require("dotenv").config();
 const app = express();
 
 // ✅ CORS setup — allows frontend to call backend
-app.use(
-  cors({
-    origin: "*", // For production, replace with actual frontend domain
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"], // Include Authorization for JWT
-  })
-);
+app.use(cors({
+  origin: ["http://localhost:3000"], // add Netlify later
+  methods: ["GET","POST","PUT","DELETE"],
+  allowedHeaders: ["Content-Type","Authorization"],
+}));
 
 // ✅ Middleware to parse JSON bodies
 app.use(express.json());
